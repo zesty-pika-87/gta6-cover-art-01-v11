@@ -18,19 +18,17 @@
 </header>
 <main class="app">
   <section class="controls" aria-label="Cover editor controls">
-    <h1>Make your cover</h1>
-    <p class="lede">Six of your photos become a poster: a giant gradient title, a script line, and full poster furniture.</p>
-
     <h2>Step 1 — Add photos</h2>
     <label class="filelabel">Add your photos
       <input id="photo" type="file" accept="image/*" multiple>
     </label>
     <div id="tray" class="tray" aria-label="Photo tray"></div>
-    <p class="hint">Click a photo to edit its panel. The tray starts with six different sample photos.</p>
 
     <h2>Step 2 — Caption &amp; style</h2>
-    <label>Cover title <input id="title" type="text" maxlength="24" value="AFTER DARK"></label>
-    <label>Script line <input id="script" type="text" maxlength="48" value="when the palms go quiet"></label>
+    <div class="fieldrow">
+      <label>Cover title <input id="title" type="text" maxlength="24" value="AFTER DARK"></label>
+      <label>Script line <input id="script" type="text" maxlength="48" value="when the palms go quiet"></label>
+    </div>
     <div class="group" aria-label="Cover variant">
       <span class="grouplabel">Cover variant</span>
       <div class="chips">
@@ -60,8 +58,10 @@
     </div>
     <div class="group panelbox" aria-label="Selected panel controls">
       <span class="grouplabel">Selected panel: <b id="panelName">boulevard</b></span>
-      <label>Zoom <input id="zoom" type="range" min="1" max="2.5" step="0.05" value="1"></label>
-      <label>Role tag <input id="role" type="text" maxlength="16" value="THE DRIVER"></label>
+      <div class="fieldrow">
+        <label>Zoom <input id="zoom" type="range" min="1" max="2.5" step="0.05" value="1"></label>
+        <label>Role tag <input id="role" type="text" maxlength="16" value="THE DRIVER"></label>
+      </div>
       <div class="chips">
         <button type="button" id="flip">Flip photo</button>
         <button type="button" id="swap">Swap with next</button>
