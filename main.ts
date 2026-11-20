@@ -1,6 +1,9 @@
 // Palm Fever Studio (v11): a clean rebuild from the winners' pattern —
 // six different photos in six panels, a giant gradient title with a script
-// line over it, and full poster furniture on every cover. This entrypoint
+// line over it, and full poster furniture on every cover. Revised after
+// the first screenshot pass: the role tags moved to the top of each panel
+// (the title overlaps the panels' feet) and every photo got a focal point
+// so a cover-fit crop never cuts a face off. This entrypoint
 // only hands the app in: it copies app/ and screenshots/ beside this file
 // to /output and writes /output/dossier.json with the vendored library.
 // A working gta6-cover-art-01 entry (Node 22, standard library only): the app is this directory's app/ folder, plain
