@@ -3,20 +3,85 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cover Snap</title>
+<title>Palm Fever Studio — GTA-style cover maker</title>
 <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+<header class="topbar">
+  <div class="brand"><span class="palm">PALM FEVER</span> STUDIO</div>
+  <ol class="steps">
+    <li class="step" data-step="1"><b>1</b> Add photos</li>
+    <li class="step" data-step="2"><b>2</b> Caption &amp; style</li>
+    <li class="step" data-step="3"><b>3</b> Export PNG</li>
+  </ol>
+  <div class="topnote">Your photos stay on your machine — nothing is uploaded.</div>
+</header>
 <main class="app">
-  <section class="controls">
-    <h1>Cover Snap</h1>
-    <p>A photo and a caption, made into a square cover.</p>
-    <label>Photo <input id="photo" type="file" accept="image/*"></label>
-    <label>Caption <input id="caption" type="text" maxlength="40" value="Sunset Heist"></label>
-    <button id="export" type="button">Export PNG 1080 x 1080</button>
+  <section class="controls" aria-label="Cover editor controls">
+    <h1>Make your cover</h1>
+    <p class="lede">Six of your photos become a poster: a giant gradient title, a script line, and full poster furniture.</p>
+
+    <h2>Step 1 — Add photos</h2>
+    <label class="filelabel">Add your photos
+      <input id="photo" type="file" accept="image/*" multiple>
+    </label>
+    <div id="tray" class="tray" aria-label="Photo tray"></div>
+    <p class="hint">Click a photo to edit its panel. The tray starts with six different sample photos.</p>
+
+    <h2>Step 2 — Caption &amp; style</h2>
+    <label>Cover title <input id="title" type="text" maxlength="24" value="AFTER DARK"></label>
+    <label>Script line <input id="script" type="text" maxlength="48" value="when the palms go quiet"></label>
+    <div class="group" aria-label="Cover variant">
+      <span class="grouplabel">Cover variant</span>
+      <div class="chips">
+        <button type="button" data-variant="palmfever">PALM FEVER</button>
+        <button type="button" data-variant="hightide">HIGH TIDE HUSTLE</button>
+        <button type="button" data-variant="heatwave">HEATWAVE</button>
+        <button type="button" data-variant="afterdark">AFTER DARK</button>
+      </div>
+    </div>
+    <div class="group" aria-label="Layout preset">
+      <span class="grouplabel">Layout</span>
+      <div class="chips">
+        <button type="button" data-layout="heroMosaic">Hero mosaic</button>
+        <button type="button" data-layout="heroThree">Hero + three</button>
+        <button type="button" data-layout="sixGrid">Six grid</button>
+        <button type="button" data-layout="diagonal">Diagonal</button>
+      </div>
+    </div>
+    <div class="group" aria-label="Colour grade">
+      <span class="grouplabel">Grade</span>
+      <div class="chips">
+        <button type="button" data-grade="sunset">Sunset</button>
+        <button type="button" data-grade="golden">Golden hour</button>
+        <button type="button" data-grade="neon">Neon night</button>
+        <button type="button" data-grade="night">After dark</button>
+      </div>
+    </div>
+    <div class="group panelbox" aria-label="Selected panel controls">
+      <span class="grouplabel">Selected panel: <b id="panelName">boulevard</b></span>
+      <label>Zoom <input id="zoom" type="range" min="1" max="2.5" step="0.05" value="1"></label>
+      <label>Role tag <input id="role" type="text" maxlength="16" value="THE DRIVER"></label>
+      <div class="chips">
+        <button type="button" id="flip">Flip photo</button>
+        <button type="button" id="swap">Swap with next</button>
+        <button type="button" id="resetPanel">Reset panel</button>
+      </div>
+    </div>
+
+    <h2>Step 3 — Export PNG</h2>
+    <div class="chips export">
+      <button type="button" data-export="1080x1080">Square 1080 × 1080</button>
+      <button type="button" data-export="1080x1350">Portrait 1080 × 1350</button>
+      <button type="button" data-export="1920x1080">Landscape 1920 × 1080</button>
+    </div>
+    <button id="exportAll" type="button" class="primary">Export all three sizes</button>
     <p id="status" role="status"></p>
   </section>
-  <canvas id="cover" width="1080" height="1080" aria-label="The cover"></canvas>
+  <section class="preview" aria-label="Live preview">
+    <canvas id="cover" width="1080" height="1080" aria-label="The cover preview"></canvas>
+    <p id="previewNote"></p>
+  </section>
 </main>
 <script type="module" src="./src/main.js"></script>
 </body>

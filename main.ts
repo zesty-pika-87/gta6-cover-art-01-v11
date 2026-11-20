@@ -1,3 +1,8 @@
+// Palm Fever Studio (v11): a clean rebuild from the winners' pattern —
+// six different photos in six panels, a giant gradient title with a script
+// line over it, and full poster furniture on every cover. This entrypoint
+// only hands the app in: it copies app/ and screenshots/ beside this file
+// to /output and writes /output/dossier.json with the vendored library.
 // A working gta6-cover-art-01 entry (Node 22, standard library only): the app is this directory's app/ folder, plain
 // static files a desktop browser loads offline (app/index.html and its ES modules, no library and no network
 // request), and the program hands it in. It copies app/ and screenshots/ from beside this file to /output and writes
